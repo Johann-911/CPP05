@@ -1,19 +1,34 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp" 
+#include "AForm.hpp" 
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 int main()
 {
+    std::srand(std::time(NULL));
     try
     {
-        Form f1("TaxForm", 50, 10);
-        std::cout << f1 << std::endl;
+        RobotomyRequestForm RoboForm("RoboForm");
+        ShrubberyCreationForm form("home");
+        PresidentialPardonForm PresiForm("Pardon");
 
-        Bureaucrat b1("Alice", 30);
-        b1.signForm(f1);
-        std::cout << f1 << std::endl;
+        Bureaucrat Rob("Rob", 40);
+        Bureaucrat alice("Alice", 100);
+        Bureaucrat Bob("Bob", 150);
+        Bureaucrat boss("Boss", 5);
+
+        Bob.executeForm(form);
+        Rob.signForm(RoboForm);
+        Rob.executeForm(RoboForm);
+
+        boss.signForm(PresiForm);
+        boss.executeForm(PresiForm);
         
-        Bureaucrat b2("Bob", 60);
-        b2.signForm(f1);   
+        alice.signForm(form);
+        alice.executeForm(form);
     }
     catch(const std::exception &e)
     {
