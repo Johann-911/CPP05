@@ -18,10 +18,10 @@ class AForm
         const int _minExec;
 
     public:
-        AForm(const std::string name, const int _minExec, const int _minGrade);
+        AForm(const std::string name, const int _minGrade, const int _minExec);
         AForm(const AForm &copy);
         AForm &operator=(const AForm &copy);
-        ~AForm();
+        virtual ~AForm();
 
         class GradeTooHighException : public std::exception
         {

@@ -17,7 +17,7 @@ class Form
         const int _minExec;
 
     public:
-        Form(const std::string name, const int _minExec, const int _minGrade);
+        Form(const std::string name, const int _minGrade, const int _minExec);
         Form(const Form &copy);
         Form &operator=(const Form &copy);
         ~Form();

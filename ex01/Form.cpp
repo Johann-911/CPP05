@@ -2,13 +2,13 @@
 #include "Bureaucrat.hpp"
 
 Form::Form(const std::string name, const int minGrade, const int minExec) : _name(name), _signed(false), _minGrade(minGrade), _minExec(minExec){
-    if(_minGrade < 1 || _minGrade > 150)
+    if(_minGrade > 150 || _minExec > 150)
         throw GradeTooHighException();
-    if(_minExec < 1 || _minExec > 150)
+    if(_minGrade < 1 || _minExec < 1)
         throw GradeTooLowException();
 }
 
-Form::Form(const Form &copy) : _name(copy._name), _minGrade(copy._minGrade), _minExec(copy._minExec)
+Form::Form(const Form &copy) : _signed(copy._signed), _name(copy._name), _minGrade(copy._minGrade), _minExec(copy._minExec)
 {
 }
 
