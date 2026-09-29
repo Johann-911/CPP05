@@ -1,28 +1,28 @@
 CPP = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++11
 NAME = a.out
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+
+SRCS = main.cpp ShrubberyCreationForm.cpp AForm.cpp Bureaucrat.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS_DIR = objs
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
+
 RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS_DIR) $(OBJS)
+$(NAME): $(OBJS)
 	$(CPP) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJS_DIR)/%.o: %.cpp
+$(OBJS_DIR)/%.o: %.cpp 
 	@mkdir -p $(OBJS_DIR)
 	$(CPP) $(CXXFLAGS) -c $< -o $@
-
-$(OBJS_DIR):
-	@mkdir -p $(OBJS_DIR)
 
 clean:
 	$(RM) -r $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) *_shrubbery
 
 re: fclean all
 

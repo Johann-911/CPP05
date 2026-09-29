@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <exception> 
+#include <stdexcept>
 
 class Bureaucrat;
 
@@ -38,7 +39,7 @@ class AForm
         bool isSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
-
+        virtual void execute(Bureaucrat const &executor) const = 0;
 
 
         

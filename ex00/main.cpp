@@ -1,7 +1,8 @@
 #include "Bureaucrat.hpp"
 
-int main() {
-	std::cout << "Basic construction:\n";
+int main() 
+{
+    std::cout << "Basic construction:\n";
 	try {
 		Bureaucrat a("A", 1);
 		std::cout << a << "\n";

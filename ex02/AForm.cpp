@@ -1,14 +1,14 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(const std::string name, const int minGrade, const int minExec) : _name(name), _signed(false), _minGrade(minGrade), _minExec(minExec){
+AForm::AForm(const std::string name, const int minExec, const int minGrade) : _name(name), _signed(false), _minGrade(minGrade), _minExec(minExec){
     if(_minGrade < 1 || _minGrade > 150)
         throw GradeTooHighException();
     if(_minExec < 1 || _minExec > 150)
         throw GradeTooLowException();
 }
 
-AForm::AForm(const AForm &copy) : _name(copy._name), _minGrade(copy._minGrade), _minExec(copy._minExec)
+AForm::AForm(const AForm &copy) : _name(copy._name), _signed(copy._signed), _minGrade(copy._minGrade), _minExec(copy._minExec)
 {
 }
 

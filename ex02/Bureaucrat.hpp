@@ -4,9 +4,8 @@
 
 #include <string>
 #include <iostream>
-#include "Form.hpp"
 #include <exception>
-#include "Form.hpp" 
+#include "AForm.hpp" 
 
 class Bureaucrat
 {
@@ -34,9 +33,10 @@ class Bureaucrat
 
         std::string getName() const;
         int getGrade() const;
-        void signForm(Form &f);
+        void signForm(AForm &f);
         void incrementGrade();
         void decrementGrade();
+        void executeForm(AForm const &form) const;
         
 };
 
