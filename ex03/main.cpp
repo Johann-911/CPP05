@@ -19,10 +19,12 @@ int main()
         AForm* rrf;
 
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-
-        Rob.signForm(*rrf);
-        Rob.executeForm(*rrf);
-        delete rrf;
+        if(rrf != NULL)
+        {
+            Rob.signForm(*rrf);
+            Rob.executeForm(*rrf);
+            delete rrf;
+        }
 
     }
     catch(const std::exception &e)

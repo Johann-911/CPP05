@@ -22,19 +22,22 @@ Intern::~Intern()
 AForm *Intern::makeForm(const std::string &formName, const std::string &target)
 {
     std::string formNames[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
-    if(formName == formNames[0])
+    for(int i = 0; i < 3; i++)
     {
-        std::cout << "Intern creates " << formName << std::endl;
-        return new ShrubberyCreationForm(target);
+        if(formName == formNames[i])
+        {
+            std::cout << "Intern creates " << formName << std::endl;
+            switch(i)
+            {
+                case 0:
+                    return new ShrubberyCreationForm(target);
+                case 1:
+                    return new PresidentialPardonForm(target);
+                case 2:
+                    return new RobotomyRequestForm(target);
+           }
+        }
     }
-    else if(formName == formNames[1])
-    {
-        std::cout << "Intern creates " << formName << std::endl;
-        return new PresidentialPardonForm(target);
-    }
-    else
-    {
-        std::cout << "Intern creates " << formName << std::endl;
-        return new RobotomyRequestForm(target);
-    }
+    std::cout << "Intern need correct form " << std::endl;
+    return NULL;
 }
